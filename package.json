@@ -1,6 +1,6 @@
 {
   "name": "react-autoscroll-component",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": false,
   "main": "./src/components/AutoScroll",
   "author": "Kristijan Pajtasev",
@@ -16,6 +16,10 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/kristijan-pajtasev/react-autoscroll"
   },
   "scripts": {
     "start": "react-scripts start",
