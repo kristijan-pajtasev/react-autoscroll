@@ -1,12 +1,12 @@
 {
   "name": "react-autoscroll-component",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
   "main": "./src/components/AutoScroll",
   "author": "Kristijan Pajtasev",
   "license": "MIT",
-  "description": "",
-  "keywords": [],
+  "description": "React component that gives automatic scroll",
+  "keywords": ["scroll", "autoscroll", "react", "component"],
   "dependencies": {
   },
   "devDependencies": {
