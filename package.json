@@ -1,6 +1,6 @@
 {
   "name": "react-autoscroll-component",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "private": false,
   "main": "./src/components/AutoScroll/AutoScroll.compiled.js",
   "author": "Kristijan Pajtasev",

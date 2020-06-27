@@ -1,3 +1,4 @@
 # React AutoScroll component
 
-This project is in dev stage and is not ready to be used.
+React component which will automatically scroll content inside of it. Once it reaches
+end it will either start again from top or stop, depending on the configuration. 
