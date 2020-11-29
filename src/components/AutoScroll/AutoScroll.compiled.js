@@ -20,13 +20,14 @@ var AutoScroll = function AutoScroll(props) {
       onEnd = props.onEnd,
       data = props.data;
   var id = "AutoScroll_".concat(Date.now());
+  var timeoutId;
 
   var scroll = function scroll(element) {
     var top = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
     var maxTop = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : Infinity;
     var newTop = top + 4;
     element.style.top = "-".concat(newTop, "px");
-    setTimeout(function () {
+    timeoutId = setTimeout(function () {
       if (newTop >= maxTop && onEnd) {
         setTimeout(function () {
           element.style.top = "0px";
@@ -43,8 +44,12 @@ var AutoScroll = function AutoScroll(props) {
     if (elementHeight > containerHeight) {
       scroll(document.querySelector("#".concat(id, ">*")), 0, elementHeight - containerHeight);
     } else if (elementHeight <= containerHeight && onEnd) {
-      setTimeout(onEnd, 3000 * Math.random() + 3000);
+      timeoutId = setTimeout(onEnd, 3000 * Math.random() + 3000);
     }
+
+    return function () {
+      clearTimeout(timeoutId);
+    };
   }, [data]);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "AutoScroll",

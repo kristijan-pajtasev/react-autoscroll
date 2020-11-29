@@ -5,11 +5,12 @@ import './AutoScroll.css';
 const AutoScroll = (props) => {
     const {stopAtEnd, onEnd, data} = props;
     const id = `AutoScroll_${Date.now()}`
+    let timeoutId;
 
     const scroll = (element, top = 0, maxTop = Infinity) => {
         const newTop = top + 4;
         element.style.top = `-${newTop}px`;
-        setTimeout(() => {
+        timeoutId = setTimeout(() => {
             if (newTop >= maxTop && onEnd) {
                 setTimeout(() => {
                     element.style.top = `0px`
@@ -25,7 +26,10 @@ const AutoScroll = (props) => {
         if (elementHeight > containerHeight) {
             scroll(document.querySelector(`#${id}>*`), 0, elementHeight - containerHeight);
         } else if (elementHeight <= containerHeight && onEnd) {
-            setTimeout(onEnd, 3000 * Math.random() + 3000)
+            timeoutId = setTimeout(onEnd, 3000 * Math.random() + 3000)
+        }
+        return () => {
+            clearTimeout(timeoutId)
         }
     }, [data])
 
